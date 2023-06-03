@@ -22,8 +22,10 @@ function singleGame() {
     if (playerSelection == computerChoice) {
         console.log("It's a tie")
     } else if ((playerSelection == "rock" && computerChoice == "scissor") || (playerSelection == "scissor" && computerChoice == "paper") || (playerSelection == "paper" && computerChoice == "rock")) {
-        console.log("Congrats! You win!");
+        console.log("Congrats! You win! " + playerSelection + " beats " + computerChoice);
     } else if ((playerSelection == "scissor" && computerChoice == "rock") || (playerSelection == "paper" && computerChoice == "scissor") || (playerSelection == "rock" && computerChoice == "paper")) {
-        console.log("You lose. Try again.");
+        console.log("You lose." + computerChoice + " beats " + playerSelection);
     }
 }
+
+singleGame()
