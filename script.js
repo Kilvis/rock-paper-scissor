@@ -1,6 +1,8 @@
 function getComputerChoice() {
     computerChoiceInt = Math.ceil(Math.random()*10);
 
+    console.log(computerChoice)
+
     if (computerChoiceInt <= 3) {
         computerChoiceString = "rock";
     } else if (computerChoiceInt > 3 && computerChoiceInt <= 6 ) {
@@ -13,29 +15,33 @@ function getComputerChoice() {
 
 function singleGame() {
     playerSelection = prompt("Type rock, paper or scissor: ");
-    if (playerSelection == "rock" || playerSelection != "paper" || playerSelection != "scissor") {
-        playerSelection = prompt("Please type rock, paper or scissor: ");
-    }
     playerSelection.toLowerCase();
-    computerChoice = getComputerChoice();
-    
-    if (playerSelection == computerChoice) {
-        console.log("It's a tie")
-        return 0;
-    } else if ((playerSelection == "rock" && computerChoice == "scissor") || (playerSelection == "scissor" && computerChoice == "paper") || (playerSelection == "paper" && computerChoice == "rock")) {
-        console.log("Congrats! You win! " + playerSelection + " beats " + computerChoice);
-        return 1;
-    } else if ((playerSelection == "scissor" && computerChoice == "rock") || (playerSelection == "paper" && computerChoice == "scissor") || (playerSelection == "rock" && computerChoice == "paper")) {
-        console.log("You lose." + computerChoice + " beats " + playerSelection);
-        return -1;
+    if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissor") {
+        console.log("picked")
+        computerChoice = getComputerChoice();
+        
+        if (playerSelection == computerChoice) {
+            console.log("It's a tie")
+            return 0;
+        } else if ((playerSelection == "rock" && computerChoice == "scissor") || (playerSelection == "scissor" && computerChoice == "paper") || (playerSelection == "paper" && computerChoice == "rock")) {
+            console.log("Congrats! You win! " + playerSelection + " beats " + computerChoice);
+            return 1;
+        } else if ((playerSelection == "scissor" && computerChoice == "rock") || (playerSelection == "paper" && computerChoice == "scissor") || (playerSelection == "rock" && computerChoice == "paper")) {
+            console.log("You lose." + computerChoice + " beats " + playerSelection);
+            return -1;
+        }
+    } else {
+        singleGame();
     }
+    
+
 }
 
 function game() {
     scorePlayer = 0;
     scoreComputer = 0;
     for (let i = 0; i<=4; i++) {
-        tempScore = singleGame()
+        tempScore = singleGame();
         if (tempScore < 0) {
             scoreComputer++;
         } else if (tempScore > 0) {
