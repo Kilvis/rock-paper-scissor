@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 function singleGame() {
     playerSelection = prompt("Type rock, paper or scissor: ");
-    if (playerSelection == "rock" || playerSelection != "paper" || playerSelection != "s"cissor") {
+    if (playerSelection == "rock" || playerSelection != "paper" || playerSelection != "scissor") {
         playerSelection = prompt("Please type rock, paper or scissor: ");
     }
     playerSelection.toLowerCase();
